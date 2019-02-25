@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-private',
@@ -8,11 +9,14 @@ import { User } from 'src/app/models/user';
 })
 export class PrivateComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
   public user: User = null
 
   ngOnInit() {
+    this.auth.user.subscribe(data => {
+      this.user = data
+    })
   }
 
 }

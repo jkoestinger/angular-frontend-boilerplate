@@ -5,3 +5,7 @@
 <p>
   Try to login in order to access top secret data
 </p>
+
+<div class="alert alert-info" *ngIf="auth.loggedIn | async">
+  You can now access the private data page with the new menu item
+</div>
